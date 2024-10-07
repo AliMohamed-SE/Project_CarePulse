@@ -21,9 +21,7 @@ export const createUser = async (user: CreateUserParams) => {
       Query.equal("phone", [user.phone]),
     ]);
 
-    console.log(existingUsers);
-
-    if (existingUsers) {
+    if (existingUsers.total > 0) {
       return existingUsers?.users[0];
     }
 
